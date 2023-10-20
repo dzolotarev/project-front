@@ -3,9 +3,84 @@
     <title>RPG</title>
     <script src=https://code.jquery.com/jquery-3.6.0.min.js></script>
     <link href="/css/my.css" rel="stylesheet">
+    <script src="/script/myscripts.js"></script>
 </head>
-<body>
+<body onload="show_list(0)">
 <h1>RPG admin panel</h1>
+<h2>Accounts list</h2>
 
+<label for="count_1">Count per page:</label>
+<select id="count_1" onchange="show_list(0)">
+    <option value="3">3</option>
+    <option value="5">5</option>
+    <option value="10">10</option>
+    <option value="20">20</option>
+</select>
+<br><br>
+<table id="table_1">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Title</th>
+        <th>Race</th>
+        <th>Profession</th>
+        <th>Level</th>
+        <th>Birthday</th>
+        <th>Banned</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+<br>
+<div id="paging_buttons">Pages:</div>
+<hr>
+<h2>Create new account:</h2>
+<label for="input_name_new">Name:</label>
+<input type="text" id="input_name_new" name="name" required size="12" maxlength="12">
+<br><br>
+<label for="input_title_new">Title:</label>
+<input type="text" id="input_title_new" name="title " required size="30" maxlength="30">
+<br><br>
+<label for="input_race_new">Race:</label>
+<select id="input_race_new" name='race'>
+    <option value='HUMAN'>HUMAN</option>
+    <option value='DWARF'>DWARF</option>
+    <option value='ELF'>ELF</option>
+    <option value='GIANT'>GIANT</option>
+    <option value='ORC'>ORC</option>
+    <option value='TROLL'>TROLL</option>
+    <option value='HOBBIT'>HOBBIT</option>
+</select>
+<br><br>
+<label for="input_profession_new">Profession:</label>
+<select id="input_profession_new" name='profession'>
+    <option value='WARRIOR'>WARRIOR</option>
+    <option value='ROGUE'>ROGUE</option>
+    <option value='SORCERER'>SORCERER</option>
+    <option value='CLERIC'>CLERIC</option>
+    <option value='PALADIN'>PALADIN</option>
+    <option value='NAZGUL'>NAZGUL</option>
+    <option value='WARLOCK'>WARLOCK</option>
+    <option value='DRUID'>DRUID</option>
+</select>
+<br><br>
+<label for="input_level_new">Level:</label>
+<input type="number" id="input_level_new" name="level" min="0" max="100">
+<br><br>
+<label for="input_birthday_new">Birthday:</label>
+<input type="date" id="input_birthday_new" name="birthday" min="2000-01-01" max="3000-12-31">
+<br><br>
+<label for="input_banned_new">Banned:</label>
+<select id="input_banned_new" name='banned'>
+    <option value='false'>false</option>
+    <option value='true'>true</option>
+</select>
+<br><br>
+<span>
+    <button type="submit" onclick="createAcc()">Save</button>
+</span>
 </body>
 </html>
